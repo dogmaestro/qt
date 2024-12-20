@@ -17,16 +17,10 @@ public:
     MainWindow(QWidget *parent = nullptr);
     ~MainWindow();
 
-    QString getHostname() const;
-    QString getDatabaseName() const;
-    QString getLogin() const;
-    QString getPassword() const;
-    uint getPort() const;
+
 
 private slots:
     void on_connectButton_clicked();
-
-    void on_cancel_clicked();
 
 private:
     Ui::MainWindow *ui;

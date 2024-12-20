@@ -1,5 +1,7 @@
 #include "mainwindow.h"
 #include "./ui_mainwindow.h"
+#include "databaseconnectiondialog2.h"
+#include <QMessageBox>
 
 MainWindow::MainWindow(QWidget *parent)
     : QMainWindow(parent)
@@ -13,32 +15,23 @@ MainWindow::~MainWindow()
     delete ui;
 }
 
-QString MainWindow::getHostname() const {
-    return ui->hostname->text();
-}
-
-QString MainWindow::getDatabaseName() const {
-    return ui->databaseName->text();
-}
-
-QString MainWindow::getLogin() const {
-    return ui->login->text();
-}
-
-QString MainWindow::getPassword() const {
-    return ui->password->text();
-}
-
-uint MainWindow::getPort() const {
-    return static_cast<uint>(ui->port->value());
-}
-
-void MainWindow::on_connectButton_clicked() {
-    this->close();
-}
-
-void MainWindow::on_cancel_clicked()
+void MainWindow::on_connectButton_clicked()
 {
-    this->close();
+    DatabaseConnectionDialog2 dialog(this);
+    if (dialog.exec() == QDialog::Accepted) {
+        QString hostname = dialog.getHostname();
+        QString dbName = dialog.getDatabaseName();
+        QString login = dialog.getLogin();
+        QString password = dialog.getPassword();
+        quint16 port = dialog.getPort();
+
+        QString info = QString("Имя хоста: %1\nИмя БД: %2\nЛогин: %3\nПароль: %4\nПорт: %5")
+                           .arg(hostname)
+                           .arg(dbName)
+                           .arg(login)
+                           .arg(password)
+                           .arg(port);
+        QMessageBox::information(this, "Информация по соединению", info);
+    }
 }
 
