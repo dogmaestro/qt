@@ -140,6 +140,10 @@ void MainWindow::ScreenDataFromDB(QAbstractItemModel *model, QString typeRequest
 
     ui->tb_result->setModel(model);
 
+    for(int i = 0; i < model->columnCount(); i++) {
+        ui->tb_result->setColumnHidden(i, false);
+    }
+
     if (typeRequest == "Все") {
         for(int i = 0; i < model->columnCount(); i++) {
             if(i != 1 && i != 2) {
@@ -147,7 +151,6 @@ void MainWindow::ScreenDataFromDB(QAbstractItemModel *model, QString typeRequest
             }
         }
     }
-
 }
 
 
