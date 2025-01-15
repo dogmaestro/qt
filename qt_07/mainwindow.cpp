@@ -8,9 +8,13 @@ MainWindow::MainWindow(QWidget *parent)
     : QMainWindow(parent)
     , ui(new Ui::MainWindow)
     , series(new QLineSeries())
+    , chart(new QChart())
+    , chartView(new QChartView(chart))
 {
     ui->setupUi(this);
     ui->pb_clearResult->setCheckable(true);
+
+    chartView->setRenderHint(QPainter::Antialiasing);
 
     connect(this, &MainWindow::dataReady, this, &MainWindow::displayChart);
 }
@@ -18,6 +22,8 @@ MainWindow::MainWindow(QWidget *parent)
 MainWindow::~MainWindow()
 {
     delete ui;
+    delete chartView;
+    delete chart;
 }
 
 
@@ -249,7 +255,6 @@ void MainWindow::on_pb_start_clicked()
 
 void MainWindow::displayChart()
 {
-    QChart *chart = new QChart();
     chart->addSeries(series);
     chart->setTitle("Первая секунда обработанных данных");
     chart->setAnimationOptions(QChart::SeriesAnimations);
@@ -258,13 +263,9 @@ void MainWindow::displayChart()
     chart->axes(Qt::Horizontal).first()->setTitleText("Время");
     chart->axes(Qt::Vertical).first()->setTitleText("Значения");
 
-    QChartView *chartView = new QChartView(chart);
-    chartView->setRenderHint(QPainter::Antialiasing);
+    chartView->resize(800, 600);
+    chartView->show();
 
-    QMainWindow *window = new QMainWindow();
-    window->setCentralWidget(chartView);
-    window->resize(800, 600);
-    window->show();
 }
 
 

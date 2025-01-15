@@ -56,6 +56,8 @@ private:
     QVector<double> procesData;
     QVector<double> mins, maxs;
     QLineSeries *series;
+    QChart *chart;
+    QChartView *chartView;
 
 };
 #endif // MAINWINDOW_H
