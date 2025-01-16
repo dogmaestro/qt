@@ -22,7 +22,7 @@ MainWindow::MainWindow(QWidget *parent)
    watcher2 = new QFutureWatcher<void>();
 
    connect(watcher1, &QFutureWatcher<void>::finished, this, &MainWindow::startSecondTask);
-   connect(watcher2, &QFutureWatcher<void>::finished, this, &MainWindow::onFutureFinished);
+   //connect(watcher2, &QFutureWatcher<void>::finished, this, &MainWindow::onFutureFinished);
 
     //Сигналы по завершению работы потоков
     connect(race1, &Controller::sig_WorkFinish, [&](){
@@ -89,10 +89,10 @@ MainWindow::~MainWindow()
 
 
 void MainWindow::startSecondTask() {
-    auto race = new ExampleRace(&m);
+    //auto race = new ExampleRace(&m);
     QFuture<void> future2 = QtConcurrent::run([=]() {
-        race->DoWork(&number, ui->rb_mutexOn->isChecked(), ui->sb_initNum->value());
-        delete race;
+        concurRace1->DoWork(&number, ui->rb_mutexOn->isChecked(), ui->sb_initNum->value());
+        //delete race;
     });
     watcher2->setFuture(future2);
 }
@@ -103,10 +103,10 @@ void MainWindow::StartRace(void){
 
     if(ui->rb_qtConcur->isChecked()){
 
-        auto race = new ExampleRace(&m);
+        //auto race = new ExampleRace(&m);
         QFuture<void> future1 = QtConcurrent::run([=]() {
-            race->DoWork(&number, ui->rb_mutexOn->isChecked(), ui->sb_initNum->value());
-            delete race;
+            concurRace2->DoWork(&number, ui->rb_mutexOn->isChecked(), ui->sb_initNum->value());
+            //delete race;
         });
         watcher1->setFuture(future1);
 
