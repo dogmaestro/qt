@@ -1,0 +1,172 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>MainWindow</class>
+ <widget class="QMainWindow" name="MainWindow">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>757</width>
+    <height>507</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>Инспектор аэропортов</string>
+  </property>
+  <widget class="QWidget" name="centralwidget">
+   <layout class="QGridLayout" name="gridLayout">
+    <item row="0" column="0" rowspan="3">
+     <widget class="QTableView" name="tv_flights"/>
+    </item>
+    <item row="1" column="1">
+     <spacer name="verticalSpacer">
+      <property name="orientation">
+       <enum>Qt::Orientation::Vertical</enum>
+      </property>
+      <property name="sizeType">
+       <enum>QSizePolicy::Policy::Minimum</enum>
+      </property>
+      <property name="sizeHint" stdset="0">
+       <size>
+        <width>20</width>
+        <height>111</height>
+       </size>
+      </property>
+     </spacer>
+    </item>
+    <item row="2" column="1">
+     <widget class="QGroupBox" name="groupBox">
+      <property name="title">
+       <string>Параметры запроса</string>
+      </property>
+      <layout class="QVBoxLayout" name="verticalLayout_2">
+       <item>
+        <widget class="QDateEdit" name="de_date">
+         <property name="dateTime">
+          <datetime>
+           <hour>2</hour>
+           <minute>45</minute>
+           <second>0</second>
+           <year>2016</year>
+           <month>8</month>
+           <day>15</day>
+          </datetime>
+         </property>
+         <property name="maximumDateTime">
+          <datetime>
+           <hour>20</hour>
+           <minute>55</minute>
+           <second>0</second>
+           <year>2017</year>
+           <month>9</month>
+           <day>14</day>
+          </datetime>
+         </property>
+         <property name="minimumDateTime">
+          <datetime>
+           <hour>2</hour>
+           <minute>45</minute>
+           <second>0</second>
+           <year>2016</year>
+           <month>8</month>
+           <day>15</day>
+          </datetime>
+         </property>
+         <property name="maximumDate">
+          <date>
+           <year>2017</year>
+           <month>9</month>
+           <day>14</day>
+          </date>
+         </property>
+         <property name="minimumDate">
+          <date>
+           <year>2016</year>
+           <month>8</month>
+           <day>15</day>
+          </date>
+         </property>
+         <property name="timeSpec">
+          <enum>Qt::TimeSpec::UTC</enum>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <widget class="QPushButton" name="pb_fetch_flights">
+         <property name="focusPolicy">
+          <enum>Qt::FocusPolicy::StrongFocus</enum>
+         </property>
+         <property name="text">
+          <string>Получить рейсы</string>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <widget class="QPushButton" name="pb_show_stats">
+         <property name="text">
+          <string>Статистика</string>
+         </property>
+        </widget>
+       </item>
+      </layout>
+     </widget>
+    </item>
+    <item row="0" column="1">
+     <widget class="QGroupBox" name="qb_direction">
+      <property name="sizePolicy">
+       <sizepolicy hsizetype="Preferred" vsizetype="Minimum">
+        <horstretch>0</horstretch>
+        <verstretch>0</verstretch>
+       </sizepolicy>
+      </property>
+      <property name="title">
+       <string>Направление</string>
+      </property>
+      <layout class="QVBoxLayout" name="verticalLayout">
+       <item>
+        <widget class="QComboBox" name="cb_airports"/>
+       </item>
+       <item>
+        <widget class="QRadioButton" name="rb_arrival">
+         <property name="text">
+          <string>Прилет</string>
+         </property>
+         <property name="checked">
+          <bool>true</bool>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <widget class="QRadioButton" name="rb_departure">
+         <property name="text">
+          <string>Вылет</string>
+         </property>
+        </widget>
+       </item>
+      </layout>
+     </widget>
+    </item>
+    <item row="3" column="0">
+     <widget class="QLabel" name="lb_status">
+      <property name="text">
+       <string>Отключено</string>
+      </property>
+     </widget>
+    </item>
+   </layout>
+  </widget>
+  <widget class="QMenuBar" name="menubar">
+   <property name="geometry">
+    <rect>
+     <x>0</x>
+     <y>0</y>
+     <width>757</width>
+     <height>26</height>
+    </rect>
+   </property>
+  </widget>
+  <widget class="QStatusBar" name="statusbar"/>
+ </widget>
+ <resources/>
+ <connections/>
+</ui>

@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>AirportStatsWindowUI</class>
+ <widget class="QWidget" name="AirportStatsWindowUI">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>1071</width>
+    <height>577</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>Form</string>
+  </property>
+  <layout class="QGridLayout" name="gridLayout_2">
+   <item row="0" column="0">
+    <widget class="QLabel" name="lb_Airport">
+     <property name="text">
+      <string>b_Airport</string>
+     </property>
+    </widget>
+   </item>
+   <item row="1" column="0">
+    <widget class="QTabWidget" name="tw_stats">
+     <property name="currentIndex">
+      <number>1</number>
+     </property>
+     <widget class="QWidget" name="tab_year">
+      <attribute name="title">
+       <string>За год</string>
+      </attribute>
+      <layout class="QGridLayout" name="gridLayout_3">
+       <item row="1" column="0">
+        <widget class="QWidget" name="cv_year" native="true"/>
+       </item>
+      </layout>
+     </widget>
+     <widget class="QWidget" name="tab_month">
+      <attribute name="title">
+       <string>За месяц</string>
+      </attribute>
+      <layout class="QGridLayout" name="gridLayout">
+       <item row="0" column="0">
+        <widget class="QComboBox" name="cb_month">
+         <property name="currentIndex">
+          <number>-1</number>
+         </property>
+         <property name="maxVisibleItems">
+          <number>12</number>
+         </property>
+        </widget>
+       </item>
+       <item row="1" column="0">
+        <widget class="QWidget" name="cv_month" native="true"/>
+       </item>
+      </layout>
+     </widget>
+    </widget>
+   </item>
+   <item row="2" column="0">
+    <widget class="QPushButton" name="pb_close">
+     <property name="text">
+      <string>Закрыть</string>
+     </property>
+    </widget>
+   </item>
+  </layout>
+ </widget>
+ <resources/>
+ <connections/>
+</ui>
